@@ -4,38 +4,40 @@ Java RESTful API criada para o bootcamp santander com a DIO
 
 ### Diagrama de Classes
 
+```mermaid
 classDiagram
     class User {
-        -String name
-        -Account account
-        -Features []
-        -Card card
-        -News[]
+        +String name
+        +Account account
+        +Feature[] features
+        +Card card
+        +News[] news
     }
-    
+
     class Account {
-        -String number
-        -String agency
-        -Float balance
-        -Float limit
+        +String number
+        +String agency
+        +float balance
+        +float limit
     }
-    
+
     class Feature {
-        -String icon
-        -String description
+        +String icon
+        +String description
     }
-    
+
     class Card {
-        -String number
-        -Float limit
+        +String number
+        +float limit
     }
-    
+
     class News {
-        -String icon
-        -String description
+        +String icon
+        +String description
     }
-    
-    User --> Account
-    User --> Feature
-    User --> Card
-    User --> News
+
+    User "1" *-- "1" Account
+    User "1" *-- "N" Feature
+    User "1" *-- "1" Card
+    User "1" *-- "N" News
+```
